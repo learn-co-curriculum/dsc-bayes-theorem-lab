@@ -8,7 +8,6 @@ In this lab, we shall try to put some of the formulas to practice that we came a
 * Describe the roles of Prior, Likehood and Posterior components of Bayes Theorem 
 * Understand and perform simple applications of Bayes Theorem for sensitivity and specificity
 
-
 ## Exercise 1
 ### If a single card is drawn from a standard deck of playing cards, What is the probability of seeing a king ?
 
