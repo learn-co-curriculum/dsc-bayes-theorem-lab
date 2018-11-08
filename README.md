@@ -1,6 +1,7 @@
 
 # Bayes' Theorem - Lab
 
+## Introduction
 In this lab, we shall try to put some of the formulas to practice that we came across with in the previous lesson. 
 
 ## Objectives
