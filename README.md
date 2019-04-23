@@ -2,81 +2,54 @@
 # Bayes' Theorem - Lab
 
 ## Introduction
-In this lab, we shall try to put some of the formulas to practice that we came across with in the previous lesson. 
+
+In this lab, you'll practice Bayes' Theorem in some simple word problems. 
 
 ## Objectives
 * Understand and describe the Bayesian theorem from conditional probabilities
-* Describe the roles of Prior, Likehood and Posterior components of Bayes Theorem 
 * Understand and perform simple applications of Bayes Theorem for sensitivity and specificity
 
+## Baye's Theorem Function
 
-## Exercise 1
-### If a single card is drawn from a standard deck of playing cards, What is the probability of seeing a king ?
+To start, write a function `bayes()` which takes in the probability of A, the probability of B, and the probability of B given A. From this, the function should then return the conditional probability of A, given that B is true.
 
 
 ```python
-# the probability that the card is a king is 4/52, since there are 4 kings in a standard deck of 52 cards. 
-#Rewording this, if  is the event "this card is a king," the prior probability: 
-p_king = 4/52 
-p_king
+def bayes(P_a, P_b, P_b_given_a):
+    #Your code here
+    P_a_given_b = (P_b_given_a * P_a)/P_b
+    return P_a_given_b
 ```
 
+## Skin Cancer
 
+After a physical exam, a doctor observes a blemish on a client's arm. The doctor is concerned that the blemish could be cancerous, but tells the patient to be calm and that it's probably benign. Of those with skin cancer, 100% have such blemishes. However, 20% of those without skin cancer also have such blemishes. If 15% of the population has skin cancer, what's the probability that this patient has skin cancer? 
 
-
-    0.07692307692307693
-
-
-
-### If evidence is provided (for instance, someone looks at the card) that the single card is a **face card**, what would be the posterior probability according to Bayes theorem?
+> Hint: Be sure to calculate the overall rate of blemishes across the entire population.
 
 
 ```python
-# The posterior probability P(king|Face)can be calculated using Bayes' theorem as
-
-# P(king|face) = P(face|king)P(king) / P(face)
-
-# We also know P(face|king) = 1, as every king is a face card
-
-p_face_given_king = 1
-
-# Since there are 3 face cards in each suit (Jack, Queen, King) , the probability of a face card is P(F) = 3/13
-p_face = 3/13
-
-p_king_given_face = p_face_given_king* p_king/p_face
-p_king_given_face
+#Your code here
+P_b = 1*.15 + .85*.2
+P_cancer_given_blemish = bayes(.15, P_b, 1)
+print(P_cancer_given_blemish)
 ```
 
+    0.46875
 
 
+## Children 1 
 
-    0.3333333333333333
+A couple has two children, the older of which is a boy. What is the probability that they have two boys?
 
-
-
-## Exercise 2
-#### 1. A couple has two children, the older of which is a boy. What is the probability that they have two boys?
-#### 2. A couple has two children, one of which is a boy. What is the probability that they have two boys?
 
 
 ```python
-# Explain events as:
-# A = both children are boys
-# B = older child is a boy 
-# C = One of the children is a boy 
-```
-
-
-```python
-# Part 1
-# we need P(A|B)
-
-p_a = 1/4
-p_b = 1/2
-p_b_given_a = 1
-
-p_a_given_b = p_b_given_a*p_a/p_b
-p_a_given_b
+# Your solution P(2boys|older child is a boy)
+P_a = 1/4 #Probability of 2 boys
+P_b = .5 #Probability older child is a boy
+P_b_given_a = 1 #Probability older child is a boy if 2 boys
+bayes(P_a, P_b, P_b_given_a)
 ```
 
 
@@ -86,17 +59,17 @@ p_a_given_b
 
 
 
+## Children  2
+
+A couple has two children, one of which is a boy. What is the probability that they have two boys?
+
 
 ```python
-# Part 2 
-# We need P(A|C)
-
-# we need P(C) i.e. prior prob. that couple has two boys , which is equal to (1-p_both_girls)
-p_c = 1 - 1/4
-p_c_given_a = 1
-
-p_a_given_c = p_c_given_a*p_a/p_c
-p_a_given_c
+# Your solution P(2boys|1 of 2 children is a boy)
+P_a = 1/4 #Probability of 2 boys
+P_b = 3/4 #Probability 1 of 2 children is a boy
+P_b_given_a  = 1 #Probability of 1 of 2 children being a boy, given both are boys
+bayes(P_a, P_b, P_b_given_a)
 ```
 
 
@@ -106,11 +79,7 @@ p_a_given_c
 
 
 
-## Exercise 3 - Bayesian Disease Diagnosis
-
-[Visit this link for an insight into Bayesian Disease Daignosis](http://doingbayesiandataanalysis.blogspot.com/2013/01/bayesian-disease-diagnosis-with.html)
-
-
+## Disease Diagnosis 2
 
 A disease test is advertised as being 99% accurate 
 
@@ -120,23 +89,15 @@ A disease test is advertised as being 99% accurate
 
 * 1% of all people have this disease 
 
-#### Now a patient tests positive, what is the probability that you actually have the disease?
+If a patient tests positive, what is the probability that they actually have the disease?
 
 
 ```python
-# By Bayes' Theorem, the probability you have the disease is
-
-#P(D|Pos) = P(Pos|D)* P(D) / P(Pos) 
-
-# P(Pos) is calculated as :
-# You either don't have the disease and tested incorrectly (0.1*0.99), 
-# or you don't have the disease and tested incorrectly (0.99 *0.1). 
-
-
-p_pos = (0.01*0.99) + (0.99 *0.01)
-
-p_d_given_pos = 0.01 * 0.99/p_pos
-p_d_given_pos
+# Your solution
+P_a = .01 #Probability of disease
+P_b = (0.01*0.99) + (0.99 *0.01) #Probability of testing positive
+P_b_given_a = .99 #Probability of testing positive given diseas
+bayes(P_a, P_b, P_b_given_a)
 ```
 
 
@@ -148,4 +109,4 @@ p_d_given_pos
 
 ## Summary 
 
-In this lab, we saw a few simple examples of Bayesian logic and how we can add prior information to our calculation, in order to update our beliefs about the certain events. Bayesian logic works in numerous ways and it is not within the scope of this section to give you a deep dive in complex Bayesian problems. You are advised to re-visit the provided links when you have a better understanding of Bayesian inference. 
+In this lab, you practiced a few simple examples of Bayesian logic and how you can add prior information to update your beliefs about the chance of events.
