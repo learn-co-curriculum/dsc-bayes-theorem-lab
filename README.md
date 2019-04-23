@@ -3,58 +3,53 @@
 
 ## Introduction
 
-In this lab, we shall try to put some of the formulas to practice that we came across with in the previous lesson. 
+In this lab, you'll practice Bayes' Theorem in some simple word problems. 
 
 ## Objectives
 * Understand and describe the Bayesian theorem from conditional probabilities
-* Describe the roles of Prior, Likehood and Posterior components of Bayes Theorem 
 * Understand and perform simple applications of Bayes Theorem for sensitivity and specificity
 
-## Exercise 1
-### If a single card is drawn from a standard deck of playing cards, What is the probability of seeing a king ?
+## Baye's Theorem Function
+
+To start, write a function `bayes()` which takes in the probability of A, the probability of B, and the probability of B given A. From this, the function should then return the conditional probability of A, given that B is true.
 
 
 ```python
-# Your solution
+def bayes(P_a, P_b, P_b_given_a):
+    #Your code here
+    P_a_given_b = (P_b_given_a * P_a)/P_b
+    return P_a_given_b
 ```
 
+## Skin Cancer
 
+After a physical exam, a doctor observes a blemish on a client's arm. The doctor is concerned that the blemish could be cancerous, but tells the patient to be calm and that it's probably benign. Of those with skin cancer, 100% have such blemishes. However, 20% of those without skin cancer also have such blemishes. If 15% of the population has skin cancer, what's the probability that this patient has skin cancer? 
 
-
-    0.07692307692307693
-
-
-
-### If evidence is provided (for instance, someone looks at the card) that the single card is a **face card**, what would be the posterior probability according to Bayes theorem?
+> Hint: Be sure to calculate the overall rate of blemishes across the entire population.
 
 
 ```python
-# Your Solution
+#Your code here
+P_b = 1*.15 + .85*.2
+P_cancer_given_blemish = bayes(.15, P_b, 1)
+print(P_cancer_given_blemish)
 ```
 
+    0.46875
 
 
+## Children 1 
 
-    0.3333333333333333
+A couple has two children, the older of which is a boy. What is the probability that they have two boys?
 
-
-
-## Exercise 2
-#### 1. A couple has two children, the older of which is a boy. What is the probability that they have two boys?
-#### 2. A couple has two children, one of which is a boy. What is the probability that they have two boys?
 
 
 ```python
-# Explain events as:
-# A = both children are boys
-# B = older child is a boy 
-# C = One of the children is a boy 
-```
-
-
-```python
-# Part 1
-# Your solution
+# Your solution P(2boys|older child is a boy)
+P_a = 1/4 #Probability of 2 boys
+P_b = .5 #Probability older child is a boy
+P_b_given_a = 1 #Probability older child is a boy if 2 boys
+bayes(P_a, P_b, P_b_given_a)
 ```
 
 
@@ -64,10 +59,17 @@ In this lab, we shall try to put some of the formulas to practice that we came a
 
 
 
+## Children  2
+
+A couple has two children, one of which is a boy. What is the probability that they have two boys?
+
 
 ```python
-# Part 2 
-# Your solution
+# Your solution P(2boys|1 of 2 children is a boy)
+P_a = 1/4 #Probability of 2 boys
+P_b = 3/4 #Probability 1 of 2 children is a boy
+P_b_given_a  = 1 #Probability of 1 of 2 children being a boy, given both are boys
+bayes(P_a, P_b, P_b_given_a)
 ```
 
 
@@ -77,11 +79,7 @@ In this lab, we shall try to put some of the formulas to practice that we came a
 
 
 
-## Exercise 3 - Bayesian Disease Diagnosis
-
-[Visit this link for an insight into Bayesian Disease Daignosis](http://doingbayesiandataanalysis.blogspot.com/2013/01/bayesian-disease-diagnosis-with.html)
-
-
+## Disease Diagnosis 2
 
 A disease test is advertised as being 99% accurate 
 
@@ -91,11 +89,15 @@ A disease test is advertised as being 99% accurate
 
 * 1% of all people have this disease 
 
-#### Now a patient tests positive, what is the probability that you actually have the disease?
+If a patient tests positive, what is the probability that they actually have the disease?
 
 
 ```python
 # Your solution
+P_a = .01 #Probability of disease
+P_b = (0.01*0.99) + (0.99 *0.01) #Probability of testing positive
+P_b_given_a = .99 #Probability of testing positive given diseas
+bayes(P_a, P_b, P_b_given_a)
 ```
 
 
@@ -107,4 +109,4 @@ A disease test is advertised as being 99% accurate
 
 ## Summary 
 
-In this lab, we saw a few simple examples of Bayesian logic and how we can add prior information to our calculation, in order to update our beliefs about the certain events. Bayesian logic works in numerous ways and it is not within the scope of this section to give you a deep dive in complex Bayesian problems. You are advised to re-visit the provided links when you have a better understanding of Bayesian inference. 
+In this lab, you practiced a few simple examples of Bayesian logic and how you can add prior information to update your beliefs about the chance of events.
