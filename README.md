@@ -6,17 +6,18 @@
 In this lab, you'll practice Bayes' Theorem in some simple word problems. 
 
 ## Objectives
-* Understand and describe the Bayesian theorem from conditional probabilities
-* Understand and perform simple applications of Bayes Theorem for sensitivity and specificity
+In this lab you will be able to: 
 
-## Baye's Theorem Function
+- Use Bayes' theorem to determine the probability of specific events 
 
-To start, write a function `bayes()` which takes in the probability of A, the probability of B, and the probability of B given A. From this, the function should then return the conditional probability of A, given that B is true.
+## Define a custom function for Baye's theorem
+
+To start, write a function, `bayes()`, which takes in the probability of A, the probability of B, and the probability of B given A. From this, the function should then return the conditional probability of A, given that B is true.
 
 
 ```python
 def bayes(P_a, P_b, P_b_given_a):
-    #Your code here
+    # Your code here
     return P_a_given_b
 ```
 
@@ -28,16 +29,15 @@ After a physical exam, a doctor observes a blemish on a client's arm. The doctor
 
 
 ```python
-#Your code here
+# Your code here
 ```
 
     0.46875
 
 
-## Children 1 
+## Children (I) 
 
 A couple has two children, the older of which is a boy. What is the probability that they have two boys?
-
 
 
 ```python
@@ -51,7 +51,7 @@ A couple has two children, the older of which is a boy. What is the probability 
 
 
 
-## Children  2
+## Children  (II)
 
 A couple has two children, one of which is a boy. What is the probability that they have two boys?
 
@@ -67,13 +67,13 @@ A couple has two children, one of which is a boy. What is the probability that t
 
 
 
-## Disease Diagnosis 2
+## A diagnostic test
 
-A disease test is advertised as being 99% accurate 
+A diagnostic test is advertised as being 99% accurate 
 
-* If a patient has the disease,they  will test positive 99% of the time.
+* If a patient has the disease, they  will test positive 99% of the time 
 
-* If you don't have the disease, they will test negative 99% of the time. 
+* If they don't have the disease, they will test negative 99% of the time  
 
 * 1% of all people have this disease 
 
