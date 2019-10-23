@@ -10,7 +10,7 @@ In this lab you will be able to:
 
 - Use Bayes' theorem to determine the probability of specific events 
 
-## Define a custom function for Baye's theorem
+## Define a custom function for Bayes' theorem
 
 To start, write a function, `bayes()`, which takes in the probability of A, the probability of B, and the probability of B given A. From this, the function should then return the conditional probability of A, given that B is true.
 
