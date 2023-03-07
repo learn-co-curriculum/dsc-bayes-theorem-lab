@@ -1,4 +1,3 @@
-
 # Bayes' Theorem - Lab
 
 ## Introduction
@@ -39,7 +38,7 @@ print(P_cancer_given_blemish)
     0.46875
 
 
-## Children (I) 
+## Children
 
 A couple has two children, the older of which is a boy. What is the probability that they have two boys?
 
@@ -56,26 +55,6 @@ bayes(P_a, P_b, P_b_given_a)
 
 
     0.5
-
-
-
-## Children  (II)
-
-A couple has two children, one of which is a boy. What is the probability that they have two boys?
-
-
-```python
-# Your solution P(2boys|1 of 2 children is a boy)
-P_a = 1/4 # Probability of 2 boys
-P_b = 3/4 # Probability 1 of 2 children is a boy
-P_b_given_a  = 1 # Probability of 1 of 2 children being a boy, given both are boys
-bayes(P_a, P_b, P_b_given_a)
-```
-
-
-
-
-    0.3333333333333333
 
 
 
