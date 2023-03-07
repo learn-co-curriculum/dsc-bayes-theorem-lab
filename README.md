@@ -1,4 +1,3 @@
-
 # Bayes' Theorem - Lab
 
 ## Introduction
@@ -32,10 +31,7 @@ After a physical exam, a doctor observes a blemish on a client's arm. The doctor
 # Your code here
 ```
 
-    0.46875
-
-
-## Children (I) 
+## Children
 
 A couple has two children, the older of which is a boy. What is the probability that they have two boys?
 
@@ -43,29 +39,6 @@ A couple has two children, the older of which is a boy. What is the probability 
 ```python
 # Your solution P(2boys|older child is a boy)
 ```
-
-
-
-
-    0.5
-
-
-
-## Children  (II)
-
-A couple has two children, one of which is a boy. What is the probability that they have two boys?
-
-
-```python
-# Your solution P(2boys|1 of 2 children is a boy)
-```
-
-
-
-
-    0.3333333333333333
-
-
 
 ## A diagnostic test
 
@@ -83,13 +56,6 @@ If a patient tests positive, what is the probability that they actually have the
 ```python
 # Your solution P(Disease | positive test)
 ```
-
-
-
-
-    0.5
-
-
 
 ## Summary 
 
