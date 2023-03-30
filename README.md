@@ -22,10 +22,10 @@ def bayes(P_a, P_b, P_b_given_a):
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
 def bayes(P_a, P_b, P_b_given_a):
     # Your code here
-    P_a_given_b = (P_b_given_a * P_a)/P_b
+    P_a_given_b = (P_b_given_a * P_a) / P_b
     return P_a_given_b
 ```
 
@@ -42,10 +42,10 @@ After a physical exam, a doctor observes a blemish on a client's arm. The doctor
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
 # Your code here
-P_b = 1*.15 + .85*.2
-P_cancer_given_blemish = bayes(.15, P_b, 1)
+P_b = 1 * 0.15 + 0.85 * 0.2
+P_cancer_given_blemish = bayes(0.15, P_b, 1)
 print(P_cancer_given_blemish)
 ```
 
@@ -63,11 +63,11 @@ A couple has two children, the older of which is a boy. What is the probability 
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
 # Your solution P(2boys|older child is a boy)
-P_a = 1/4 # Probability of 2 boys
-P_b = .5 # Probability older child is a boy
-P_b_given_a = 1 # Probability older child is a boy if 2 boys
+P_a = 1 / 4  # Probability of 2 boys
+P_b = 0.5  # Probability older child is a boy
+P_b_given_a = 1  # Probability older child is a boy if 2 boys
 bayes(P_a, P_b, P_b_given_a)
 ```
 
@@ -97,11 +97,11 @@ If a patient tests positive, what is the probability that they actually have the
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
 # Your solution
-P_a = .01 # Probability of disease
-P_b = (0.01*0.99) + (0.99 *0.01) # Probability of testing positive
-P_b_given_a = .99 # Probability of testing positive given diseas
+P_a = 0.01  # Probability of disease
+P_b = (0.01 * 0.99) + (0.99 * 0.01)  # Probability of testing positive
+P_b_given_a = 0.99  # Probability of testing positive given diseas
 bayes(P_a, P_b, P_b_given_a)
 ```
 
